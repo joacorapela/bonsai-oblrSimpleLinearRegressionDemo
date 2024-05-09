@@ -9,6 +9,9 @@ using Bonsai.Design;
 using System.Windows.Forms;
 using Bonsai.Design.Visualizers;
 using MathNet.Numerics;
+using MathNet.Numerics.LinearAlgebra;
+using MathNet.Numerics.Distributions;
+using MathNet.Numerics.Random;
 using ScottPlot;
 using ScottPlot.Plottable;
 
@@ -18,8 +21,11 @@ using ScottPlot.Plottable;
 [TypeVisualizer(typeof(PosteriorVisualizer))]
 public class PosteriorVisualizer : DialogTypeVisualizer
 {
+    private static ScottPlot.FormsPlot _formsPlot1;
     private static Heatmap _hm;
     private static double[,] _buffer;
+    private static double[] _x;
+    private static double[] _y;
 
     public PosteriorVisualizer()
     {
@@ -27,14 +33,10 @@ public class PosteriorVisualizer : DialogTypeVisualizer
 
     public override void Load(IServiceProvider provider)
     {
-        ScottPlot.FormsPlot formsPlot1;
-    	double[] x;
-    	double[] y;
-
-        formsPlot1 = new() { Dock = DockStyle.Fill };
-        x = MathNet.Numerics.Generate.LinearRange(-1.0, 0.01, 1.0);
-        y = MathNet.Numerics.Generate.LinearRange(-1.0, 0.01, 1.0);
-        _buffer = new double[x.Length, y.Length];
+        _formsPlot1 = new() { Dock = DockStyle.Fill };
+        _x = MathNet.Numerics.Generate.LinearRange(-1.0, 0.01, 1.0);
+        _y = MathNet.Numerics.Generate.LinearRange(-1.0, 0.01, 1.0);
+        _buffer = new double[_x.Length, _y.Length];
 
         // Add sample data to the plot
         _hm = _formsPlot1.Plot.AddHeatmap(_buffer, lockScales: false);
@@ -44,12 +46,12 @@ public class PosteriorVisualizer : DialogTypeVisualizer
         _hm.YMin = -1.0;
         _hm.YMax = 1.0;
         // _formsPlot1.Frameless();
-        formsPlot1.Refresh();
+        _formsPlot1.Refresh();
 
         var visualizerService = (IDialogTypeVisualizerService)provider.GetService(typeof(IDialogTypeVisualizerService));
         if (visualizerService != null)
         {
-            visualizerService.AddControl(_hm);
+            visualizerService.AddControl(_formsPlot1);
         }
     }
 
@@ -58,6 +60,7 @@ public class PosteriorVisualizer : DialogTypeVisualizer
 	PosteriorDataItem data_item = (PosteriorDataItem) value;
         computeMultivariateGaussianPDForGrid(_buffer, data_item.mn.ToArray(), data_item.Sn.ToArray());
         _hm.Update(_buffer);
+        _formsPlot1.Refresh();
     }
 
     public override void Unload()
