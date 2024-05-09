@@ -4,8 +4,8 @@ public class BayesianLinearRegression
 {
     static public PosteriorDataItem OnlineUpdate(PosteriorDataItem prior, Vector<double> phi, double y, double alpha, double beta)
     {
-         Vector<double> mn = prior.mean;
-         Matrix<double> Sn = prior.cov;
+         Vector<double> mn = prior.mn;
+         Matrix<double> Sn = prior.Sn;
 
          Vector<double> aux1 = Sn.Multiply(phi);
          double aux2 = 1.0/(1.0 / beta + phi.ToRowMatrix().Multiply(Sn).Multiply(phi)[0]);
@@ -20,8 +20,8 @@ public class BayesianLinearRegression
 
          PosteriorDataItem posterior = new PosteriorDataItem
          {
-             mean = mnp1,
-             cov = Snp1
+             mn = mnp1,
+             Sn = Snp1
          };
 
 	 return posterior;
