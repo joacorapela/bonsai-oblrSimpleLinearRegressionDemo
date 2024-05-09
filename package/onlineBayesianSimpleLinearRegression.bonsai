@@ -20,14 +20,9 @@
         </Combinator>
       </Expression>
       <Expression xsi:type="Combinator">
-        <Combinator xsi:type="p1:OnlineBayesianSimpleLinearRegression">
-          <p1:priorPrecision>2</p1:priorPrecision>
-          <p1:likePrecision>11.11</p1:likePrecision>
-          <p1:m0>
-            <p1:double>0</p1:double>
-            <p1:double>0</p1:double>
-          </p1:m0>
-          <p1:S0>1,0;0,1</p1:S0>
+        <Combinator xsi:type="p1:PosteriorCalculator">
+          <p1:priorPrecision>0</p1:priorPrecision>
+          <p1:likePrecision>0</p1:likePrecision>
         </Combinator>
       </Expression>
     </Nodes>
