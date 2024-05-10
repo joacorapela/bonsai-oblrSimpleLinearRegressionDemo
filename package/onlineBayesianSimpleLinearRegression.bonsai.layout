@@ -27,15 +27,19 @@
     <WindowState>Normal</WindowState>
   </DialogSettings>
   <DialogSettings>
-    <Visible>false</Visible>
+    <Visible>true</Visible>
     <Location>
-      <X>0</X>
-      <Y>0</Y>
+      <X>467</X>
+      <Y>179</Y>
     </Location>
     <Size>
-      <Width>0</Width>
-      <Height>0</Height>
+      <Width>416</Width>
+      <Height>339</Height>
     </Size>
     <WindowState>Normal</WindowState>
+    <VisualizerTypeName>PosteriorVisualizer</VisualizerTypeName>
+    <VisualizerSettings>
+      <PosteriorVisualizer />
+    </VisualizerSettings>
   </DialogSettings>
 </VisualizerLayout>
