@@ -15,11 +15,7 @@ using MathNet.Numerics.Random;
 using ScottPlot;
 using ScottPlot.Plottable;
 
-[Combinator]
-[Description("")]
-[WorkflowElementCategory(ElementCategory.Sink)]
-[TypeVisualizer(typeof(PosteriorVisualizer))]
-public class PosteriorVisualizer : DialogTypeVisualizer
+public class SimpleLinearRegressionPostCoefsVisualizer : DialogTypeVisualizer
 {
     private static ScottPlot.FormsPlot _formsPlot1;
     private static Heatmap _hm;
@@ -27,19 +23,17 @@ public class PosteriorVisualizer : DialogTypeVisualizer
     private static double[] _x;
     private static double[] _y;
 
-    public PosteriorVisualizer()
-    {
-    }
-
     public override void Load(IServiceProvider provider)
     {
-        _formsPlot1 = new() { Dock = DockStyle.Fill };
+        _formsPlot1 = new ScottPlot.FormsPlot() { Dock = DockStyle.Fill };
         _x = MathNet.Numerics.Generate.LinearRange(-1.0, 0.01, 1.0);
         _y = MathNet.Numerics.Generate.LinearRange(-1.0, 0.01, 1.0);
         _buffer = new double[_x.Length, _y.Length];
 
         // Add sample data to the plot
         _hm = _formsPlot1.Plot.AddHeatmap(_buffer, lockScales: false);
+	_formsPlot1.Plot.XLabel("b0");
+	_formsPlot1.Plot.YLabel("b1");
         _hm.FlipVertically = true;
         _hm.XMin = -1.0;
         _hm.XMax = 1.0;
