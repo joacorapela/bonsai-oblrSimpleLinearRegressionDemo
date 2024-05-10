@@ -10,7 +10,7 @@ using MathNet.Numerics.Distributions;
 [Combinator]
 [Description("")]
 [WorkflowElementCategory(ElementCategory.Transform)]
-public class DataSourceBayesianSimpleLinearRegression{
+public class SimpleLinearRegressionDataSource{
     public double a0 { get; set; }
     public double a1 { get; set; }
     public double sigma { get; set; }
