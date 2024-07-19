@@ -15,6 +15,8 @@ using MathNet.Numerics.Random;
 using ScottPlot;
 using ScottPlot.Plottable;
 
+[assembly: TypeVisualizer(typeof(SimpleLinearRegressionPostCoefsVisualizer), Target=typeof(PosteriorCalculator))] 
+
 public class SimpleLinearRegressionPostCoefsVisualizer : DialogTypeVisualizer
 {
     private static ScottPlot.FormsPlot _formsPlot1;
