@@ -44,9 +44,7 @@ public class PosteriorCalculator
             },
             (prior, observation) =>
             {
-                double[] aux = new[] { 1, observation.x };
-                Vector<double> phi = Vector<double>.Build.DenseOfArray(aux);
-                PosteriorDataItem pdi = BayesianLinearRegression.OnlineUpdate(prior, phi, observation.t, priorPrecision, likePrecision);
+                PosteriorDataItem pdi = BayesianLinearRegression.OnlineUpdate(prior, observation.phi, observation.t, priorPrecision, likePrecision);
                 return pdi;
             });
     }
