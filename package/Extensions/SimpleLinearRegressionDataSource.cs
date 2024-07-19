@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reactive.Linq;
+using MathNet.Numerics.LinearAlgebra;
 using MathNet.Numerics.Random;
 using MathNet.Numerics.Distributions;
 
@@ -28,8 +29,10 @@ public class SimpleLinearRegressionDataSource{
             double y = this.a0 + this.a1 * x;
             double t = y + epsilon;
 
+            double[] aux = new[] { 1, x };
+            Vector<double> phi = Vector<double>.Build.DenseOfArray(aux);
             RegressionObservation observation = new RegressionObservation();
-            observation.x = x;
+            observation.phi = phi;
             observation.t = t;
 
             return observation;
