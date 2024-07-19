@@ -17,29 +17,61 @@
   <DialogSettings>
     <Visible>false</Visible>
     <Location>
-      <X>0</X>
-      <Y>0</Y>
+      <X>26</X>
+      <Y>26</Y>
     </Location>
     <Size>
-      <Width>0</Width>
-      <Height>0</Height>
+      <Width>336</Width>
+      <Height>65</Height>
     </Size>
     <WindowState>Normal</WindowState>
   </DialogSettings>
   <DialogSettings>
+    <Visible>false</Visible>
+    <Location>
+      <X>104</X>
+      <Y>104</Y>
+    </Location>
+    <Size>
+      <Width>336</Width>
+      <Height>221</Height>
+    </Size>
+    <WindowState>Normal</WindowState>
+    <VisualizerTypeName>Bonsai.Design.ObjectTextVisualizer</VisualizerTypeName>
+    <VisualizerSettings>
+      <ObjectTextVisualizer />
+    </VisualizerSettings>
+  </DialogSettings>
+  <DialogSettings>
     <Visible>true</Visible>
     <Location>
-      <X>467</X>
-      <Y>179</Y>
+      <X>285</X>
+      <Y>303</Y>
     </Location>
     <Size>
       <Width>416</Width>
       <Height>339</Height>
     </Size>
     <WindowState>Normal</WindowState>
-    <VisualizerTypeName>PosteriorVisualizer</VisualizerTypeName>
+    <VisualizerTypeName>SimpleLinearRegressionPostCoefsVisualizer</VisualizerTypeName>
     <VisualizerSettings>
-      <PosteriorVisualizer />
+      <SimpleLinearRegressionPostCoefsVisualizer />
+    </VisualizerSettings>
+  </DialogSettings>
+  <DialogSettings>
+    <Visible>false</Visible>
+    <Location>
+      <X>625</X>
+      <Y>97</Y>
+    </Location>
+    <Size>
+      <Width>336</Width>
+      <Height>182</Height>
+    </Size>
+    <WindowState>Normal</WindowState>
+    <VisualizerTypeName>Bonsai.Design.ObjectTextVisualizer</VisualizerTypeName>
+    <VisualizerSettings>
+      <ObjectTextVisualizer />
     </VisualizerSettings>
   </DialogSettings>
 </VisualizerLayout>

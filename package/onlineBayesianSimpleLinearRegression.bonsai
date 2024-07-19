@@ -16,7 +16,13 @@
         <Combinator xsi:type="p1:SimpleLinearRegressionDataSource">
           <p1:a0>0.5</p1:a0>
           <p1:a1>-0.5</p1:a1>
-          <p1:sigma>0</p1:sigma>
+          <p1:sigma>0.1</p1:sigma>
+        </Combinator>
+      </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="rx:BufferCount">
+          <rx:Count>3</rx:Count>
+          <rx:Skip>1</rx:Skip>
         </Combinator>
       </Expression>
       <Expression xsi:type="Combinator">
@@ -30,10 +36,16 @@
           <p1:S0>1,0;0,1</p1:S0>
         </Combinator>
       </Expression>
+      <Expression xsi:type="Combinator">
+        <Combinator xsi:type="rx:WithLatestFrom" />
+      </Expression>
     </Nodes>
     <Edges>
       <Edge From="0" To="1" Label="Source1" />
       <Edge From="1" To="2" Label="Source1" />
+      <Edge From="1" To="3" Label="Source1" />
+      <Edge From="2" To="4" Label="Source1" />
+      <Edge From="3" To="4" Label="Source2" />
     </Edges>
   </Workflow>
 </WorkflowBuilder>
