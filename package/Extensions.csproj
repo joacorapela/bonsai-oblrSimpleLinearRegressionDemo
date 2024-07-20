@@ -13,7 +13,7 @@
     <PackageReference Include="ScottPlot" Version="4.1.74" />
     <PackageReference Include="ScottPlot.WinForms" Version="4.1.74" />
     <PackageReference Include="XamlNameReferenceGenerator" Version="1.6.1" />
-    <PackageReference Include="BayesianLinearRegression" Version="1.1.1" />
+    <PackageReference Include="BayesianLinearRegression" Version="1.1.2" />
   </ItemGroup>
 
 </Project>
