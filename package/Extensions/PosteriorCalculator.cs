@@ -44,7 +44,15 @@ public class PosteriorCalculator
             },
             (prior, observation) =>
             {
-                PosteriorDataItem pdi = BayesianLinearRegression.OnlineUpdate(prior, observation.phi, observation.t, priorPrecision, likePrecision);
+                ValueTuple<Vector<double>, Matrix<double>> tuple = BayesianLinearRegression.OnlineUpdate(prior.mn, prior.Sn, observation.phi, observation.t, priorPrecision, likePrecision);
+		Vector<double> mn = tuple.Item1;
+		Matrix<double> Sn = tuple.Item2;
+		PosteriorDataItem pdi = new PosteriorDataItem {
+		     mn=mn,
+		     Sn=Sn 
+                };
+		pdi.mn = mn;
+		pdi.Sn = Sn;
                 return pdi;
             });
     }
