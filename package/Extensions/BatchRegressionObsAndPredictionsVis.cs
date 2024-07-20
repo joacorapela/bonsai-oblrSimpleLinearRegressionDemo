@@ -78,7 +78,7 @@ public class BatchRegressionObsAndPredictionsVisualizer : DialogTypeVisualizer
         for (int i=0; i<xDense.Length; i++)
         {
             var subsetBasisFunctions = new List<Func<double, double>>(this.basisFunctions.Take(pdi.mn.Count));
-            var phiRow = RegressionUtils.BuildDesignMatrixRow(xDense[i], subsetBasisFunctions);
+            Vector<double> phiRow = RegressionUtils.BuildDesignMatrixRow(xDense[i], subsetBasisFunctions);
             // (mean[i], variance[i]) = BayesianLinearRegression.Predict(phiRow, pdi.mn, pdi.Sn, this.beta);
             // var (aMean, aVar) = BayesianLinearRegression.Predict(phiRow, pdi.mn, pdi.Sn, this.beta);
 
@@ -86,7 +86,8 @@ public class BatchRegressionObsAndPredictionsVisualizer : DialogTypeVisualizer
             // var aMean = tuple2.Item1;
             // var aVar = tuple2.Item2;
 
-            var tuple2 = BayesianLinearRegression.Predict(phiRow, pdi.mn, pdi.Sn, this.beta);
+            // ValueTuple<double, double> tuple2 = BayesianLinearRegression.Predict(phiRow, pdi.mn, pdi.Sn, this.beta);
+            ValueTuple<double, double> tuple2 = BayesianLinearRegression.Predict(phiRow, pdi.mn, pdi.Sn, this.beta);
 
 	    mean[i] = tuple2.Item1;
 	    variance[i] = tuple2.Item2;
