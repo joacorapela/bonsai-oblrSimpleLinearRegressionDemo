@@ -20,12 +20,22 @@ using ScottPlot.Plottable;
 public class BatchRegressionObsAndPredictionsVisualizer : DialogTypeVisualizer
 {
     private static ScottPlot.FormsPlot _formsPlot1;
-    public List<Func<double, double>> basisFunctions;
-    public double beta;
+    public double _beta;
 
     public override void Load(IServiceProvider provider)
     {
         _formsPlot1 = new ScottPlot.FormsPlot() { Dock = DockStyle.Fill };
+        _formsPlot1.Plot.YLabel("f(x)");
+        _formsPlot1.Plot.XLabel("x");
+
+	double likePrecision = 11.11;
+	_beta = likePrecision;
+
+        var visualizerService = (IDialogTypeVisualizerService)provider.GetService(typeof(IDialogTypeVisualizerService));
+        if (visualizerService != null)
+        {
+            visualizerService.AddControl(_formsPlot1);
+        }
     }
 
     public override void Show(object aValue)
@@ -50,35 +60,23 @@ public class BatchRegressionObsAndPredictionsVisualizer : DialogTypeVisualizer
         double[] t = new double[batchRObs.Count];
         for (int i=0; i<batchRObs.Count; i++)
         {
-            x[i] = batchRObs[i].phi[2];
+            x[i] = batchRObs[i].phi[1];
             t[i] = batchRObs[i].t;
         }
 
-            // find xMin and xMax
-        double xMin = x[0];
-        double xMax = x[0];
-        for(int i=1; i<x.Length; i++)
-        {
-            if (x[i] > xMax)
-            {
-                xMax = x[i];
-            }
-            if (x[i] < xMin)
-            {
-                xMin = x[i];
-            }
-        }
+        double xMin = 0.0;
+        double xMax = 1.0;
 
         int nDense = 100;
         double step = (xMax - xMin) / nDense;
         var xDense = Enumerable.Range(0, (int)Math.Ceiling((xMax - xMin) / step))
             .Select(i => xMin + i * step).ToArray();
+        var basisFunctions = RegressionUtils.GetPolynomialBasisFunctions(pdi.mn.Count-1); // parametrize this
         double[] mean = new double[xDense.Length];
         double[] variance  = new double[xDense.Length];
         for (int i=0; i<xDense.Length; i++)
         {
-            var subsetBasisFunctions = new List<Func<double, double>>(this.basisFunctions.Take(pdi.mn.Count));
-            Vector<double> phiRow = RegressionUtils.BuildDesignMatrixRow(xDense[i], subsetBasisFunctions);
+            Vector<double> phiRow = RegressionUtils.BuildDesignMatrixRow(xDense[i], basisFunctions);
             // (mean[i], variance[i]) = BayesianLinearRegression.Predict(phiRow, pdi.mn, pdi.Sn, this.beta);
             // var (aMean, aVar) = BayesianLinearRegression.Predict(phiRow, pdi.mn, pdi.Sn, this.beta);
 
@@ -87,14 +85,14 @@ public class BatchRegressionObsAndPredictionsVisualizer : DialogTypeVisualizer
             // var aVar = tuple2.Item2;
 
             // ValueTuple<double, double> tuple2 = BayesianLinearRegression.Predict(phiRow, pdi.mn, pdi.Sn, this.beta);
-            ValueTuple<double, double> tuple2 = BayesianLinearRegression.Predict(phiRow, pdi.mn, pdi.Sn, this.beta);
+            ValueTuple<double, double> tuple2 = BayesianLinearRegression.Predict(phiRow, pdi.mn, pdi.Sn, this._beta);
 
 	    mean[i] = tuple2.Item1;
 	    variance[i] = tuple2.Item2;
         }
 
         // plot means and 95% ci for xDense
-        var ci95Width = variance.Select(aVar=>1.96*Math.Sqrt(aVar)).ToArray();
+        var ci95Width = variance.Select(aVar=>1.96*Math.Sqrt(aVar)/2.0).ToArray();
 
         _formsPlot1.Plot.Clear();
 
