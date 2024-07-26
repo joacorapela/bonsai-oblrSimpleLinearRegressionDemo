@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<WorkflowBuilder Version="2.8.1"
+<WorkflowBuilder Version="2.8.5"
                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                  xmlns:rx="clr-namespace:Bonsai.Reactive;assembly=Bonsai.Core"
                  xmlns:p1="clr-namespace:;assembly=Extensions"
@@ -9,7 +9,7 @@
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="rx:Timer">
           <rx:DueTime>PT0S</rx:DueTime>
-          <rx:Period>PT10S</rx:Period>
+          <rx:Period>PT0.5S</rx:Period>
         </Combinator>
       </Expression>
       <Expression xsi:type="Combinator">
@@ -21,8 +21,8 @@
       </Expression>
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="rx:BufferCount">
-          <rx:Count>3</rx:Count>
-          <rx:Skip>1</rx:Skip>
+          <rx:Count>35</rx:Count>
+          <rx:Skip>35</rx:Skip>
         </Combinator>
       </Expression>
       <Expression xsi:type="Combinator">
