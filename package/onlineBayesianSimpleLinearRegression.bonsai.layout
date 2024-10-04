@@ -37,10 +37,6 @@
       <Height>221</Height>
     </Size>
     <WindowState>Normal</WindowState>
-    <VisualizerTypeName>Bonsai.Design.ObjectTextVisualizer</VisualizerTypeName>
-    <VisualizerSettings>
-      <ObjectTextVisualizer />
-    </VisualizerSettings>
   </DialogSettings>
   <DialogSettings>
     <Visible>true</Visible>
@@ -61,14 +57,19 @@
   <DialogSettings>
     <Visible>true</Visible>
     <Location>
-      <X>625</X>
-      <Y>97</Y>
+      <X>601</X>
+      <Y>118</Y>
     </Location>
     <Size>
-      <Width>0</Width>
-      <Height>0</Height>
+      <Width>416</Width>
+      <Height>339</Height>
     </Size>
     <WindowState>Normal</WindowState>
     <VisualizerTypeName>BatchRegressionObsAndPredictionsVisualizer</VisualizerTypeName>
+    <VisualizerSettings>
+      <BatchRegressionObsAndPredictionsVisualizer>
+        <_beta>11.11</_beta>
+      </BatchRegressionObsAndPredictionsVisualizer>
+    </VisualizerSettings>
   </DialogSettings>
 </VisualizerLayout>

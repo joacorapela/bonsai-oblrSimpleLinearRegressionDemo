@@ -15,14 +15,14 @@
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="p1:SimpleLinearRegressionDataSource">
           <p1:a0>0.5</p1:a0>
-          <p1:a1>-0.5</p1:a1>
+          <p1:a1>0.5</p1:a1>
           <p1:sigma>0.1</p1:sigma>
         </Combinator>
       </Expression>
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="rx:BufferCount">
-          <rx:Count>35</rx:Count>
-          <rx:Skip>35</rx:Skip>
+          <rx:Count>10</rx:Count>
+          <rx:Skip>1</rx:Skip>
         </Combinator>
       </Expression>
       <Expression xsi:type="Combinator">
