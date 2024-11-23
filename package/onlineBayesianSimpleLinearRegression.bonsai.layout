@@ -29,20 +29,20 @@
   <DialogSettings>
     <Visible>false</Visible>
     <Location>
-      <X>104</X>
-      <Y>104</Y>
+      <X>0</X>
+      <Y>0</Y>
     </Location>
     <Size>
-      <Width>336</Width>
-      <Height>221</Height>
+      <Width>0</Width>
+      <Height>0</Height>
     </Size>
     <WindowState>Normal</WindowState>
   </DialogSettings>
   <DialogSettings>
     <Visible>true</Visible>
     <Location>
-      <X>285</X>
-      <Y>303</Y>
+      <X>131</X>
+      <Y>315</Y>
     </Location>
     <Size>
       <Width>416</Width>
@@ -57,8 +57,8 @@
   <DialogSettings>
     <Visible>true</Visible>
     <Location>
-      <X>601</X>
-      <Y>118</Y>
+      <X>616</X>
+      <Y>252</Y>
     </Location>
     <Size>
       <Width>416</Width>
@@ -70,6 +70,22 @@
       <BatchRegressionObsAndPredictionsVisualizer>
         <_beta>11.11</_beta>
       </BatchRegressionObsAndPredictionsVisualizer>
+    </VisualizerSettings>
+  </DialogSettings>
+  <DialogSettings>
+    <Visible>true</Visible>
+    <Location>
+      <X>635</X>
+      <Y>134</Y>
+    </Location>
+    <Size>
+      <Width>336</Width>
+      <Height>65</Height>
+    </Size>
+    <WindowState>Normal</WindowState>
+    <VisualizerTypeName>Bonsai.Design.ObjectTextVisualizer</VisualizerTypeName>
+    <VisualizerSettings>
+      <ObjectTextVisualizer />
     </VisualizerSettings>
   </DialogSettings>
 </VisualizerLayout>
