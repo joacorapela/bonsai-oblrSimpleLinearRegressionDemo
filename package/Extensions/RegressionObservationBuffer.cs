@@ -7,6 +7,7 @@ using System.Reactive.Linq;
 using MathNet.Numerics.LinearAlgebra;
 using System.Xml.Serialization;
 using System.Globalization;
+using OnlineBayesianLinearRegression;
 
 [Combinator]
 [Description("")]
