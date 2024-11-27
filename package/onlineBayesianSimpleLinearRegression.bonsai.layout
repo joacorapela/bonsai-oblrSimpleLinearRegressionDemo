@@ -21,8 +21,8 @@
       <Y>26</Y>
     </Location>
     <Size>
-      <Width>336</Width>
-      <Height>65</Height>
+      <Width>0</Width>
+      <Height>0</Height>
     </Size>
     <WindowState>Normal</WindowState>
   </DialogSettings>
@@ -41,8 +41,8 @@
   <DialogSettings>
     <Visible>true</Visible>
     <Location>
-      <X>131</X>
-      <Y>315</Y>
+      <X>79</X>
+      <Y>350</Y>
     </Location>
     <Size>
       <Width>416</Width>

@@ -3,7 +3,7 @@
                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                  xmlns:rx="clr-namespace:Bonsai.Reactive;assembly=Bonsai.Core"
                  xmlns:p1="clr-namespace:;assembly=Extensions"
-                 xmlns:p2="clr-namespace:OnlineBayesianLinearRegression;assembly=OnlineBayesianLinearRegression"
+                 xmlns:p2="clr-namespace:Bonsai.ML.OnlineBayesianLinearRegression;assembly=Bonsai.ML.OnlineBayesianLinearRegression"
                  xmlns="https://bonsai-rx.org/2018/workflow">
   <Workflow>
     <Nodes>
@@ -15,9 +15,9 @@
       </Expression>
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="p1:SimpleLinearRegressionDataSource">
-          <p1:a0>0.5</p1:a0>
-          <p1:a1>-0.5</p1:a1>
-          <p1:sigma>0.1</p1:sigma>
+          <p1:a0>0</p1:a0>
+          <p1:a1>0.9</p1:a1>
+          <p1:sigma>0.3</p1:sigma>
         </Combinator>
       </Expression>
       <Expression xsi:type="Combinator">
