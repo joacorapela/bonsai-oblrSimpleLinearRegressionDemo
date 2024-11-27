@@ -1,3 +1,3 @@
-# Bonsai online Bayesian simple linear regression package
+# Bonsai online Bayesian simple linear regression demo
 
-Under construction
+![workflow](figures/workflow.png)
