@@ -6,3 +6,4 @@ bin/
 .vs/
 .bonsai/*
 !.bonsai/Bonsai.config
+!.bonsai/Setup.*
