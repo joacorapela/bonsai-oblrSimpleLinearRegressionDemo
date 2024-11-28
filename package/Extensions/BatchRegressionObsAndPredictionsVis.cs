@@ -14,6 +14,7 @@ using MathNet.Numerics.Distributions;
 using MathNet.Numerics.Random;
 using ScottPlot;
 using ScottPlot.Plottable;
+using JoacoRapela.Bonsai.ML.OnlineBayesianLinearRegression;
 
 [assembly: TypeVisualizer(typeof(BatchRegressionObsAndPredictionsVisualizer), Target=typeof(Tuple<IList<RegressionObservation>, PosteriorDataItem>))] 
 

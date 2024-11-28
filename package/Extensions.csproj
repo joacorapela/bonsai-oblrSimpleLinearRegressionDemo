@@ -13,7 +13,7 @@
     <PackageReference Include="ScottPlot" Version="4.1.74" />
     <PackageReference Include="ScottPlot.WinForms" Version="4.1.74" />
     <PackageReference Include="XamlNameReferenceGenerator" Version="1.6.1" />
-    <PackageReference Include="Bonsai.ML.OnlineBayesianLinearRegression" Version="0.1.0" />
+    <PackageReference Include="JoacoRapela.Bonsai.ML.OnlineBayesianLinearRegression" Version="0.1.1" />
     <PackageReference Include="System.ValueTuple" Version="4.5.0" />
   </ItemGroup>
 

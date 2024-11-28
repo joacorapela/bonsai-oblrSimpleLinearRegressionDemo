@@ -7,7 +7,7 @@ using System.Reactive.Linq;
 using MathNet.Numerics.LinearAlgebra;
 using MathNet.Numerics.Random;
 using MathNet.Numerics.Distributions;
-using Bonsai.ML.OnlineBayesianLinearRegression;
+using JoacoRapela.Bonsai.ML.OnlineBayesianLinearRegression;
 
 [Combinator]
 [Description("")]
