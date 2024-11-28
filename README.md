@@ -8,3 +8,4 @@ To run this demo:
 2. execute `bonsai-oblrSimpleLinearRegressionDemo/.bonsai/Setup.cmd`
 3. run `bonsai-oblrSimpleLinearRegressionDemo.bonsai/Bonsai.exe`
 4. in Bonsai open the workflow `bonsai-oblrSimpleLinearRegressionDemo/package/onlineBayesianSimpleLinearRegression.bonsai`
+5. press the `Start` button in Bonsai
